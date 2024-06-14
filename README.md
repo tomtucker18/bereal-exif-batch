@@ -1,11 +1,18 @@
 # BeReal Exif Batch
 
-Dieses Script wird gebraucht um das Aufnahmedatum des jeweiligen BeReals in die Exif Daten zu schreiben. Das Datum wird automatischaus dem Dateinamen herausgelesen. Für die Uhrzeit wird immer 12:00 verwendet, da die Zeit beim Export aus der App nicht angegeben wird.
+This script writes the capture date of each exported BeReal photo into the Exif data. The date and time are automatically extracted from the filename.
 
 ## Usage
 
 1. `pip install -r requirements.txt`
-2. Alle BeReals mit Hilfe der Autoklicker App exportieren und in den **photos** Ordner kopieren.
-3. main.py ausführen
+2. Create a folder named **photos**
+3. Export all BeReals using an auto-clicker app and copy them into the **photos** folder.
+4. Run main.py
 
-Nun sollten alle Bilder das korrekte Aufnahmedatum haben.
+Now all images should have the correct capture date.
+
+## Additional info
+
+> ℹ️ Note: The time may be shifted by 12 hours. BeReal does not indicate in the filename whether it is AM or PM. The script assumes that all times before 8 AM are actually in the afternoon and adds 12 hours to them (02:50 becomes 14:50). However, this is only a rough correction and can introduce many errors.
+
+> ⚠️ Warning: There is little to no error handling in this script. As soon as BeReal changes anything on the export function, the script might stop working or even destroy your files. So **make sure you have a backup of your photos** before runnning the script.
